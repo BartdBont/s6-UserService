@@ -1,4 +1,9 @@
 package com.bart.UserService.Repositories;
 
-public interface UserRepository {
+import com.bart.UserService.Models.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.UUID;
+
+public interface UserRepository extends JpaRepository<User, UUID> {
 }
