@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "kwetter-037e"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "kwetter-037e"
+  template:
+    metadata:
+      labels:
+        app: "kwetter-037e"
+    spec:
+      containers:
+        - name: "kwetter-037e"
+          image: "kwetterbdb.azurecr.io/kwetter"
+          ports:
+          - containerPort: 80
