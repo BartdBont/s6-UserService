@@ -28,6 +28,15 @@ public class User {
     private ZonedDateTime createdAt;
     private ZonedDateTime updatedAt;
 
+    public User() {
+    }
+
+    public User(UUID id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
     @PrePersist
     protected void onCreate() {
         createdAt = DateTimeConfiguration.getCurrentDateTime();

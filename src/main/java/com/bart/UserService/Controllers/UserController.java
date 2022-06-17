@@ -2,6 +2,8 @@ package com.bart.UserService.Controllers;
 
 import com.bart.UserService.Models.User;
 import com.bart.UserService.Services.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,5 +31,15 @@ public class UserController {
     @PostMapping
     public User create(@RequestBody User tweet) {
         return userService.save(tweet);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable UUID id) {
+        try {
+            userService.remove(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

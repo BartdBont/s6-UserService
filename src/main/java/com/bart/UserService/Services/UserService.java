@@ -27,4 +27,8 @@ public class UserService {
     public User save(User tweet) {
         return userRepository.save(tweet);
     }
+
+    public void remove(UUID id) {
+        userRepository.deleteById(id);
+    }
 }
