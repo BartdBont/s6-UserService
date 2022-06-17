@@ -1,4 +1,9 @@
 spring:
+  cloud:
+    stream:
+      bindings:
+        userDeleted-out-0:
+          destination: users.delete
   application:
     name: user-service
 server:
